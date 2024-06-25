@@ -84,95 +84,98 @@ class _FirstPageState extends State<FirstPage> {
           )
         ],
       ),
-      body: Align(
-          alignment: Alignment.topCenter,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey[300],
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(2.5, 2.5),
-                          blurRadius: 5,
-                          spreadRadius: 2),
-                    ]),
-                padding: EdgeInsets.all(10),
-                width: 380,
-                height: 490,
-                child: const Column(
-                  children: [
-                    Text(
-                      "1549.7kW",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 32.5),
-                    ),
-                    Expanded(
-                      child: gaugeLayout(
-                          value1: 34.19,
-                          value2: 22.82,
-                          value3: 55.41,
-                          value4: 50.08,
-                          title1: "Steam Pressure",
-                          title2: "Steam Flow",
-                          title3: "Water Level",
-                          title4: "Power Frequency",
-                          valueType1: "bar",
-                          valueType2: "T/H",
-                          valueType3: "%",
-                          valueType4: "Hz"),
-                    ),
-                    Text("2024-04-26 13:45:25",
+      body: SingleChildScrollView(
+        child: Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 15,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey[300],
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.grey,
+                            offset: Offset(2.5, 2.5),
+                            blurRadius: 5,
+                            spreadRadius: 2),
+                      ]),
+                  padding: EdgeInsets.all(10),
+                  width: 380,
+                  height: 490,
+                  child: const Column(
+                    children: [
+                      Text(
+                        "1549.7kW",
                         style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 17.5))
-                  ],
+                            fontWeight: FontWeight.w900, fontSize: 32.5),
+                      ),
+                      Expanded(
+                        child: gaugeLayout(
+                            value1: 34.19,
+                            value2: 22.82,
+                            value3: 55.41,
+                            value4: 50.08,
+                            title1: "Steam Pressure",
+                            title2: "Steam Flow",
+                            title3: "Water Level",
+                            title4: "Power Frequency",
+                            valueType1: "bar",
+                            valueType2: "T/H",
+                            valueType3: "%",
+                            valueType4: "Hz"),
+                      ),
+                      Text("2024-04-26 13:45:25",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 17.5))
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SingleChildScrollView(
-                // Scroll Horizontally
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Factory1()));
-                        },
-                        child: factorySlider(factoryNo: "Factory 1")),
-                    GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => FirstPage()));
-                        },
-                        child: factorySlider(factoryNo: "Factory 2")),
-                    GestureDetector(
-                        onTap: () {
-                          logger.d("This is Factory 3");
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) => Setting()));
-                        },
-                        child: factorySlider(factoryNo: "Factory 3")),
-                  ],
+                const SizedBox(
+                  height: 30,
                 ),
-              )
-            ],
-          )),
+                SingleChildScrollView(
+                  // Scroll Horizontally
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                          key: const Key("factory1"),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Factory1()));
+                          },
+                          child: const factorySlider(factoryNo: "Factory 1")),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const FirstPage()));
+                          },
+                          child: const factorySlider(factoryNo: "Factory 2")),
+                      GestureDetector(
+                          onTap: () {
+                            logger.d("This is Factory 3");
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => Setting()));
+                          },
+                          child: const factorySlider(factoryNo: "Factory 3")),
+                    ],
+                  ),
+                )
+              ],
+            )),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
           BottomNavigationBarItem(label: "Setting", icon: Icon(Icons.settings)),
@@ -211,7 +214,7 @@ class radialgauge extends StatelessWidget {
         children: [
           Text(
             "$title",
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               color: Colors.black,
             ),
@@ -219,7 +222,7 @@ class radialgauge extends StatelessWidget {
           Container(
               height: 120,
               width: 100,
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: SfRadialGauge(
                 axes: [
                   RadialAxis(
@@ -231,7 +234,7 @@ class radialgauge extends StatelessWidget {
                     endAngle: 360,
                     radiusFactor: 1.5,
                     canScaleToFit: true,
-                    axisLineStyle: AxisLineStyle(
+                    axisLineStyle: const AxisLineStyle(
                       thickness: 0.3,
                       thicknessUnit: GaugeSizeUnit.factor,
                     ),
@@ -247,7 +250,7 @@ class radialgauge extends StatelessWidget {
                       GaugeAnnotation(
                         widget: Text(
                           "$value $valueType",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         angle: 90,
@@ -298,7 +301,7 @@ class gaugeLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 12,
@@ -325,30 +328,30 @@ class factorySlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // Make space between factorySliders
-      margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+      margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       width: 175,
       height: 150,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.grey[300],
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
               color: Colors.grey,
-              offset: const Offset(2.5, 2.5),
+              offset: Offset(2.5, 2.5),
               blurRadius: 5,
               spreadRadius: 3),
         ],
       ),
       child: Column(
         children: [
-          Icon(Icons.factory, size: 40),
-          SizedBox(
+          const Icon(Icons.factory, size: 40),
+          const SizedBox(
             height: 20,
           ),
           Text(
             "$factoryNo",
-            style: TextStyle(fontSize: 22.5),
+            style: const TextStyle(fontSize: 22.5),
           )
         ],
       ),

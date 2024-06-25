@@ -15,9 +15,9 @@ class Setting extends StatelessWidget {
     return MaterialApp(
       home: settingTab(),
       routes: {
-        "/profile": (context) => Engineerlist(),
-        "/home": (context) => FirstPage(),
-        "/setting": (context) => Setting()
+        "/profile": (context) => const Engineerlist(),
+        "/home": (context) => const FirstPage(),
+        "/setting": (context) => const Setting()
       },
     );
   }
@@ -64,7 +64,7 @@ class _settingTabState extends State<settingTab> {
         // A list of widget display after title
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             tooltip: "Setting",
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -73,109 +73,112 @@ class _settingTabState extends State<settingTab> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.grey[300],
-                boxShadow: const [
-                  BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(2.5, 2.5),
-                      blurRadius: 5,
-                      spreadRadius: 2),
-                ]),
-            padding: EdgeInsets.all(10),
-            width: 380,
-            height: 490,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Minimum Threshold",
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
-                    ),
-                    Icon(Icons.info_outline_rounded),
-                    Container(
-                      width: 60,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.deepPurple[50],
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey,
-                                offset: Offset(1.0, 1.0),
-                                blurRadius: 1.5,
-                                spreadRadius: 1)
-                          ]),
-                      child: Padding(
-                          padding: EdgeInsets.fromLTRB(20, 0, 8, 0),
-                          child: Icon(Icons.edit)),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 28,
-                ),
-                Expanded(
-                    child: thresholdLayout(
-                        value1: 29,
-                        value2: 22,
-                        value3: 53,
-                        value4: 48,
-                        title1: "Steam \nPressure",
-                        title2: "Steam\nFlow",
-                        title3: "Water\nLevel",
-                        title4: "Power\nFrequency",
-                        valueType1: "bar",
-                        valueType2: "T/H",
-                        valueType3: "%",
-                        valueType4: "Hz"))
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey[300],
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(2.5, 2.5),
+                        blurRadius: 5,
+                        spreadRadius: 2),
+                  ]),
+              padding: const EdgeInsets.all(10),
+              width: 380,
+              height: 490,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Minimum Threshold",
+                        style:
+                            TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+                      ),
+                      const Icon(Icons.info_outline_rounded),
+                      Container(
+                        width: 60,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.deepPurple[50],
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: Colors.grey,
+                                  offset: Offset(1.0, 1.0),
+                                  blurRadius: 1.5,
+                                  spreadRadius: 1)
+                            ]),
+                        child: const Padding(
+                            padding: EdgeInsets.fromLTRB(20, 0, 8, 0),
+                            child: Icon(Icons.edit)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 28,
+                  ),
+                  const Expanded(
+                      child: thresholdLayout(
+                          value1: 29,
+                          value2: 22,
+                          value3: 53,
+                          value4: 48,
+                          title1: "Steam \nPressure",
+                          title2: "Steam\nFlow",
+                          title3: "Water\nLevel",
+                          title4: "Power\nFrequency",
+                          valueType1: "bar",
+                          valueType2: "T/H",
+                          valueType3: "%",
+                          valueType4: "Hz"))
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 35,),
-          SingleChildScrollView(
-            // Scroll Horizontally
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Factory1()));
-                    },
-                    child: factorySlider(factoryNo: "Factory 1")),
-                GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => FirstPage()));
-                    },
-                    child: factorySlider(factoryNo: "Factory 2")),
-                GestureDetector(
-                    onTap: () {
-                      // logger.d("This is Factory 3");
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EngineerInvite()));
-                    },
-                    child: factorySlider(factoryNo: "Factory 3")),
-              ],
+            const SizedBox(height: 35,),
+            SingleChildScrollView(
+              // Scroll Horizontally
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    key: const Key("factory1"),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Factory1()));
+                      },
+                      child: const factorySlider(factoryNo: "Factory 1")),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const FirstPage()));
+                      },
+                      child: const factorySlider(factoryNo: "Factory 2")),
+                  GestureDetector(
+                      onTap: () {
+                        // logger.d("This is Factory 3");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const EngineerInvite()));
+                      },
+                      child: const factorySlider(factoryNo: "Factory 3")),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
+        items: const [
           BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
           BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
           BottomNavigationBarItem(label: "Setting", icon: Icon(Icons.settings)),
@@ -204,12 +207,12 @@ class threshold extends StatelessWidget {
     return Container(
       width: 170,
       height: 180,
-      margin: EdgeInsets.all(5),
+      margin: const EdgeInsets.all(5),
       child: Column(
         children: [
           Text(
             "$title",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           ),
           Container(
             decoration: BoxDecoration(
@@ -221,10 +224,10 @@ class threshold extends StatelessWidget {
               children: [
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: Text(
                       "$value",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
                   ),
                 ),
@@ -233,7 +236,7 @@ class threshold extends StatelessWidget {
                 Center(
                   child: Text(
                     "$valueType",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 )
               ],
