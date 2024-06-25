@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_reviewer/pages/accActivation.dart';
-import 'package:food_reviewer/pages/engineerInvite.dart';
+import 'package:food_reviewer/pages/acc_activation.dart';
+import 'package:food_reviewer/pages/engineer_invite.dart';
 import 'package:food_reviewer/pages/factory1.dart';
-import 'package:food_reviewer/pages/otp.dart';
 import 'package:food_reviewer/pages/setting.dart';
 
 // Import main
@@ -14,7 +13,7 @@ class Engineerlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const engineeringList(),
+      home: const EngineeringListClass(),
       routes: {
         "/profile": (context) => const Engineerlist(),
         "/home": (context) => const FirstPage(),
@@ -24,14 +23,14 @@ class Engineerlist extends StatelessWidget {
   }
 }
 
-class engineeringList extends StatefulWidget {
-  const engineeringList({super.key});
+class EngineeringListClass extends StatefulWidget {
+  const EngineeringListClass({super.key});
 
   @override
-  State<engineeringList> createState() => _engineeringListState();
+  State<EngineeringListClass> createState() => _EngineeringListClassState();
 }
 
-class _engineeringListState extends State<engineeringList> {
+class _EngineeringListClassState extends State<EngineeringListClass> {
   int currentIndex = 0;
 
   void _onIteamTapped(int index) {
@@ -99,9 +98,9 @@ class _engineeringListState extends State<engineeringList> {
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
-                          const nameList(name: "Ben", phone: 60123456789),
-                          const nameList(name: "Yao", phone: 60234455678),
-                          const nameList(name: "Egg", phone: 60190000009),
+                          const NameList(name: "Ben", phone: 60123456789),
+                          const NameList(name: "Yao", phone: 60234455678),
+                          const NameList(name: "Egg", phone: 60190000009),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
@@ -112,7 +111,7 @@ class _engineeringListState extends State<engineeringList> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              EngineerInvite()));
+                                              const EngineerInvite()));
                                 },
                                 child: Container(
                                   margin: const EdgeInsets.fromLTRB(0, 40, 20, 15),
@@ -156,26 +155,26 @@ class _engineeringListState extends State<engineeringList> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Factory1()));
+                                    builder: (context) => const Factory1()));
                           },
-                          child: const factorySlider(factoryNo: "Factory 1")),
+                          child: const FactorySlider(factoryNo: "Factory 1")),
                       GestureDetector(
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => FirstPage()));
+                                    builder: (context) => const FirstPage()));
                           },
-                          child: const factorySlider(factoryNo: "Factory 2")),
+                          child: const FactorySlider(factoryNo: "Factory 2")),
                       GestureDetector(
                           onTap: () {
                             // logger.d("This is Factory 3");
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => accActivate()));
+                                    builder: (context) => const AccActivate()));
                           },
-                          child: const factorySlider(factoryNo: "Factory 3")),
+                          child: const FactorySlider(factoryNo: "Factory 3")),
                     ],
                   ),
                 )
@@ -198,11 +197,11 @@ class _engineeringListState extends State<engineeringList> {
   }
 }
 
-class nameList extends StatelessWidget {
+class NameList extends StatelessWidget {
   final String name;
   final int phone;
 
-  const nameList({super.key, required this.name, required this.phone});
+  const NameList({super.key, required this.name, required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -230,7 +229,7 @@ class nameList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 55),
             child: Text(
-              "$name",
+              name,
               style: const TextStyle(fontSize: 22.5),
             ),
           ),
@@ -244,7 +243,7 @@ class nameList extends StatelessWidget {
                 ),
                 Text(
                   "+$phone",
-                  style: TextStyle(fontSize: 20),
+                  style: const TextStyle(fontSize: 20),
                 )
               ],
             ),

@@ -2,22 +2,22 @@ import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:food_reviewer/pages/otp.dart';
 
-class accActivate extends StatelessWidget {
-  const accActivate({super.key});
+class AccActivate extends StatelessWidget {
+  const AccActivate({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: const activation(),
+        body: const Activation(),
       ),
     );
   }
 }
 
-class activation extends StatelessWidget {
-  const activation({super.key});
+class Activation extends StatelessWidget {
+  const Activation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,11 @@ class activation extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset("images/upmLogo.png"),
-          Align(
+          const Align(
             alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.only(left: 20),
-              child: const Text(
+              child: Text(
                 "Welcome !",
                 style: TextStyle(fontWeight: FontWeight.w900, fontSize: 40),
               ),
@@ -39,22 +39,22 @@ class activation extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.5),
                 color: Colors.orange[100],
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                       color: Colors.grey,
                       offset: Offset(2.5, 2.5),
                       blurRadius: 1.5,
                       spreadRadius: 1)
                 ]),
-            margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-            padding: EdgeInsets.all(15),
+            margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            padding: const EdgeInsets.all(15),
             height: 350,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -66,13 +66,13 @@ class activation extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Container(
+                    SizedBox(
                       child: Row(
                         children: [
                           CountryFlag.fromCountryCode(
@@ -81,28 +81,33 @@ class activation extends StatelessWidget {
                             width: 45,
                             borderRadius: 8,
                           ),
-                          SizedBox(width: 10,),
-                          Text("+60", style: TextStyle(fontSize: 17),),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            "+60",
+                            style: TextStyle(fontSize: 17),
+                          ),
                         ],
                       ),
                     ),
-                    TextFieldSample()
+                    const TextFieldSample()
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    checkBox(),
+                    CheckBox(),
                     Text(
                       "I agree to the terms & conditions",
                       style: TextStyle(fontSize: 15),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -111,23 +116,25 @@ class activation extends StatelessWidget {
                     GestureDetector(
                       key: const Key("getActivationalCode"),
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => OTP()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const OTP()));
                       },
                       child: Container(
                         width: 220,
                         height: 40,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color.fromARGB(255, 250, 225, 255),
-                            boxShadow: [
+                            color: const Color.fromARGB(255, 250, 225, 255),
+                            boxShadow: const [
                               BoxShadow(
                                   color: Colors.grey,
                                   offset: Offset(1.5, .5),
                                   blurRadius: 0.5,
                                   spreadRadius: 1)
                             ]),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Get Activation Code",
                             style: TextStyle(
@@ -170,14 +177,14 @@ class activation extends StatelessWidget {
   }
 }
 
-class checkBox extends StatefulWidget {
-  const checkBox({super.key});
+class CheckBox extends StatefulWidget {
+  const CheckBox({super.key});
 
   @override
-  State<checkBox> createState() => checkBoxState();
+  State<CheckBox> createState() => CheckBoxState();
 }
 
-class checkBoxState extends State<checkBox> {
+class CheckBoxState extends State<CheckBox> {
   bool? isChecked = true;
 
   @override

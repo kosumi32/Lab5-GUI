@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:food_reviewer/pages/accActivation.dart';
-import 'package:food_reviewer/pages/engineerInvite.dart';
+import 'package:food_reviewer/pages/acc_activation.dart';
+import 'package:food_reviewer/pages/engineer_invite.dart';
 import 'package:food_reviewer/pages/otp.dart';
 import 'package:integration_test/integration_test.dart';
 
@@ -16,8 +16,8 @@ void main() {
       testWidgets(
         "full app test",
         (tester) async {
-          // const app1.accActivate();
-          await tester.pumpWidget(const accActivate());
+          // const app1.AccActivate();
+          await tester.pumpWidget(const AccActivate());
           // App UI state to constant (no refreshing...)
           await tester.pumpAndSettle();
 
@@ -69,7 +69,7 @@ void main() {
         await tester.tap(find.byKey(const Key("AddButton")));
         await tester.pumpAndSettle();
 
-        await tester.enterText(find.byType(textFieldName), "Goku");
+        await tester.enterText(find.byType(TextFieldName), "Goku");
         await tester.pumpAndSettle();
 
         await tester.tap(find.byKey(const Key("submitInvitation")));

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_reviewer/main.dart';
-import 'package:food_reviewer/pages/engineerInvite.dart';
-import 'package:food_reviewer/pages/engineerList.dart';
+import 'package:food_reviewer/pages/engineer_invite.dart';
+import 'package:food_reviewer/pages/engineer_list.dart';
 import 'package:food_reviewer/pages/factory1.dart';
-
-// Import main
-import '../main.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -13,7 +10,7 @@ class Setting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: settingTab(),
+      home: const SettingTab(),
       routes: {
         "/profile": (context) => const Engineerlist(),
         "/home": (context) => const FirstPage(),
@@ -23,14 +20,14 @@ class Setting extends StatelessWidget {
   }
 }
 
-class settingTab extends StatefulWidget {
-  const settingTab({super.key});
+class SettingTab extends StatefulWidget {
+  const SettingTab({super.key});
 
   @override
-  State<settingTab> createState() => _settingTabState();
+  State<SettingTab> createState() => _SettingTabState();
 }
 
-class _settingTabState extends State<settingTab> {
+class _SettingTabState extends State<SettingTab> {
   int currentIndex = 1;
 
   void _onIteamTapped(int index) {
@@ -100,8 +97,8 @@ class _settingTabState extends State<settingTab> {
                     children: [
                       const Text(
                         "Minimum Threshold",
-                        style:
-                            TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 28),
                       ),
                       const Icon(Icons.info_outline_rounded),
                       Container(
@@ -127,7 +124,7 @@ class _settingTabState extends State<settingTab> {
                     height: 28,
                   ),
                   const Expanded(
-                      child: thresholdLayout(
+                      child: ThresholdLayout(
                           value1: 29,
                           value2: 22,
                           value3: 53,
@@ -143,25 +140,31 @@ class _settingTabState extends State<settingTab> {
                 ],
               ),
             ),
-            const SizedBox(height: 35,),
+            const SizedBox(
+              height: 35,
+            ),
             SingleChildScrollView(
               // Scroll Horizontally
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   GestureDetector(
-                    key: const Key("factory1"),
+                      key: const Key("factory1"),
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const Factory1()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const FactoryClass1()));
                       },
-                      child: const factorySlider(factoryNo: "Factory 1")),
+                      child: const FactorySlider(factoryNo: "Factory 1")),
                   GestureDetector(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => const FirstPage()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const FirstPage()));
                       },
-                      child: const factorySlider(factoryNo: "Factory 2")),
+                      child: const FactorySlider(factoryNo: "Factory 2")),
                   GestureDetector(
                       onTap: () {
                         // logger.d("This is Factory 3");
@@ -170,7 +173,7 @@ class _settingTabState extends State<settingTab> {
                             MaterialPageRoute(
                                 builder: (context) => const EngineerInvite()));
                       },
-                      child: const factorySlider(factoryNo: "Factory 3")),
+                      child: const FactorySlider(factoryNo: "Factory 3")),
                 ],
               ),
             ),
@@ -191,12 +194,12 @@ class _settingTabState extends State<settingTab> {
   }
 }
 
-class threshold extends StatelessWidget {
+class Threshold extends StatelessWidget {
   final String title;
   final double value;
   final String valueType;
 
-  const threshold(
+  const Threshold(
       {super.key,
       required this.title,
       required this.value,
@@ -211,7 +214,7 @@ class threshold extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "$title",
+            title,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
           ),
           Container(
@@ -227,16 +230,20 @@ class threshold extends StatelessWidget {
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: Text(
                       "$value",
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 30),
                     ),
                   ),
                 ),
-                Container(
-                    height: 15, child: VerticalDivider(color: Colors.black), width: 20,),
+                const SizedBox(
+                    height: 15,
+                    width: 20,
+                    child: VerticalDivider(color: Colors.black)),
                 Center(
                   child: Text(
-                    "$valueType",
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    valueType,
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 )
               ],
@@ -248,7 +255,7 @@ class threshold extends StatelessWidget {
   }
 }
 
-class thresholdLayout extends StatelessWidget {
+class ThresholdLayout extends StatelessWidget {
   final double value1;
   final double value2;
   final double value3;
@@ -264,7 +271,7 @@ class thresholdLayout extends StatelessWidget {
   final String valueType3;
   final String valueType4;
 
-  const thresholdLayout({
+  const ThresholdLayout({
     super.key,
     required this.value1,
     required this.value2,
@@ -283,18 +290,17 @@ class thresholdLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
           mainAxisExtent: 150),
       children: [
-        threshold(title: title1, value: value1, valueType: valueType1),
-        threshold(title: title2, value: value2, valueType: valueType2),
-        threshold(title: title3, value: value3, valueType: valueType3),
-        threshold(title: title4, value: value4, valueType: valueType4)
+        Threshold(title: title1, value: value1, valueType: valueType1),
+        Threshold(title: title2, value: value2, valueType: valueType2),
+        Threshold(title: title3, value: value3, valueType: valueType3),
+        Threshold(title: title4, value: value4, valueType: valueType4)
       ],
     );
   }
 }
-

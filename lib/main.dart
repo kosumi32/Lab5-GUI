@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:food_reviewer/pages/accActivation.dart';
-import 'package:food_reviewer/pages/engineerInvite.dart';
+import 'package:food_reviewer/pages/acc_activation.dart';
 import 'package:food_reviewer/pages/factory1.dart';
 import 'package:food_reviewer/pages/setting.dart';
 import "package:syncfusion_flutter_gauges/gauges.dart";
 import 'package:logger/logger.dart';
 
-import '../pages/engineerList.dart';
+import 'pages/engineer_list.dart';
 
 final logger = Logger();
 
 void main() {
-  runApp(const accActivate());
+  runApp(const AccActivate());
 }
 
 class Factory2 extends StatelessWidget {
@@ -24,7 +22,7 @@ class Factory2 extends StatelessWidget {
       title: "FoodHunter",
       theme: ThemeData(primarySwatch: Colors.grey),
       debugShowCheckedModeBanner: false,
-      home: FirstPage(),
+      home:  const FirstPage(),
       routes: {
         "/profile": (context) => const Engineerlist(),
         "/home": (context) => const FirstPage(),
@@ -75,7 +73,7 @@ class _FirstPageState extends State<FirstPage> {
         // A list of widget display after title
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.settings),
+            icon:  const Icon(Icons.settings),
             tooltip: "Setting",
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -103,7 +101,7 @@ class _FirstPageState extends State<FirstPage> {
                             blurRadius: 5,
                             spreadRadius: 2),
                       ]),
-                  padding: EdgeInsets.all(10),
+                  padding: const  EdgeInsets.all(10),
                   width: 380,
                   height: 490,
                   child: const Column(
@@ -114,7 +112,7 @@ class _FirstPageState extends State<FirstPage> {
                             fontWeight: FontWeight.w900, fontSize: 32.5),
                       ),
                       Expanded(
-                        child: gaugeLayout(
+                        child: GaugeLayout(
                             value1: 34.19,
                             value2: 22.82,
                             value3: 55.41,
@@ -148,9 +146,9 @@ class _FirstPageState extends State<FirstPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Factory1()));
+                                    builder: (context) => const FactoryClass1()));
                           },
-                          child: const factorySlider(factoryNo: "Factory 1")),
+                          child: const FactorySlider(factoryNo: "Factory 1")),
                       GestureDetector(
                           onTap: () {
                             Navigator.push(
@@ -158,7 +156,7 @@ class _FirstPageState extends State<FirstPage> {
                                 MaterialPageRoute(
                                     builder: (context) => const FirstPage()));
                           },
-                          child: const factorySlider(factoryNo: "Factory 2")),
+                          child: const FactorySlider(factoryNo: "Factory 2")),
                       GestureDetector(
                           onTap: () {
                             logger.d("This is Factory 3");
@@ -167,7 +165,7 @@ class _FirstPageState extends State<FirstPage> {
                             //     MaterialPageRoute(
                             //         builder: (context) => Setting()));
                           },
-                          child: const factorySlider(factoryNo: "Factory 3")),
+                          child: const FactorySlider(factoryNo: "Factory 3")),
                     ],
                   ),
                 )
@@ -188,13 +186,13 @@ class _FirstPageState extends State<FirstPage> {
   }
 }
 
-class radialgauge extends StatelessWidget {
+class RadialGuage extends StatelessWidget {
   final double value;
   final String title;
   final String valueType;
 
   //Constructor
-  const radialgauge({
+  const RadialGuage({
     super.key,
     required this.value,
     required this.title,
@@ -213,7 +211,7 @@ class radialgauge extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            "$title",
+            title,
             style: const TextStyle(
               fontSize: 20,
               color: Colors.black,
@@ -266,7 +264,7 @@ class radialgauge extends StatelessWidget {
   }
 }
 
-class gaugeLayout extends StatelessWidget {
+class GaugeLayout extends StatelessWidget {
   final double value1;
   final double value2;
   final double value3;
@@ -282,7 +280,7 @@ class gaugeLayout extends StatelessWidget {
   final String valueType3;
   final String valueType4;
 
-  const gaugeLayout({
+  const GaugeLayout({
     super.key,
     required this.value1,
     required this.value2,
@@ -307,19 +305,19 @@ class gaugeLayout extends StatelessWidget {
           crossAxisSpacing: 12,
           mainAxisExtent: 180),
       children: [
-        radialgauge(value: value1, title: title1, valueType: valueType1),
-        radialgauge(value: value2, title: title2, valueType: valueType2),
-        radialgauge(value: value3, title: title3, valueType: valueType3),
-        radialgauge(value: value4, title: title4, valueType: valueType4),
+        RadialGuage(value: value1, title: title1, valueType: valueType1),
+        RadialGuage(value: value2, title: title2, valueType: valueType2),
+        RadialGuage(value: value3, title: title3, valueType: valueType3),
+        RadialGuage(value: value4, title: title4, valueType: valueType4),
       ],
     );
   }
 }
 
-class factorySlider extends StatelessWidget {
+class FactorySlider extends StatelessWidget {
   final String factoryNo;
 
-  const factorySlider({
+  const FactorySlider({
     super.key,
     required this.factoryNo,
   });
@@ -327,7 +325,7 @@ class factorySlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // Make space between factorySliders
+      // Make space between FactorySliders
       margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
       width: 175,
       height: 150,
@@ -350,7 +348,7 @@ class factorySlider extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "$factoryNo",
+            factoryNo,
             style: const TextStyle(fontSize: 22.5),
           )
         ],

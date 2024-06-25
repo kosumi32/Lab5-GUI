@@ -1,6 +1,6 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
-import 'package:food_reviewer/pages/engineerList.dart';
+import 'package:food_reviewer/pages/engineer_list.dart';
 
 class EngineerInvite extends StatelessWidget {
   const EngineerInvite({super.key});
@@ -10,14 +10,14 @@ class EngineerInvite extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: engineerInvitation(),
+        body: const EngineerInvitation(),
       ),
     );
   }
 }
 
-class engineerInvitation extends StatelessWidget {
-  engineerInvitation({super.key});
+class EngineerInvitation extends StatelessWidget {
+  const EngineerInvitation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class engineerInvitation extends StatelessWidget {
             ],
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(15, 10, 10, 25),
+            margin: const EdgeInsets.fromLTRB(15, 10, 10, 25),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -56,7 +56,7 @@ class engineerInvitation extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                textFieldName(
+                TextFieldName(
                   description: "Type here",
                 ),
                 SizedBox(height: 35,),
@@ -73,7 +73,7 @@ class engineerInvitation extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Container(
+              SizedBox(
                   child: Row(
                 children: [
                   CountryFlag.fromCountryCode(
@@ -106,7 +106,7 @@ class engineerInvitation extends StatelessWidget {
             child: GestureDetector(
               key: const Key("submitInvitation"),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => engineeringList()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const EngineeringListClass()));
               },
               child: Container(
                 width: 290,
@@ -137,10 +137,10 @@ class engineerInvitation extends StatelessWidget {
   }
 }
 
-class textFieldName extends StatelessWidget {
+class TextFieldName extends StatelessWidget {
   final String description;
 
-  const textFieldName({super.key, required this.description});
+  const TextFieldName({super.key, required this.description});
 
   @override
   Widget build(BuildContext context) {

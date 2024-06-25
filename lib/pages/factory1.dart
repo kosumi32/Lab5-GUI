@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_reviewer/main.dart';
-import 'package:food_reviewer/pages/engineerList.dart';
+import 'package:food_reviewer/pages/engineer_list.dart';
 import 'package:food_reviewer/pages/setting.dart';
 
-// Import main
-import '../main.dart';
 
 class Factory1 extends StatelessWidget {
   const Factory1({super.key});
@@ -12,24 +10,24 @@ class Factory1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: factory1(),
+      home: const FactoryClass1(),
       routes: {
-        "/profile": (context) => Engineerlist(),
-        "/home": (context) => factory1(),
-        "/setting": (context) => Setting()
+        "/profile": (context) => const Engineerlist(),
+        "/home": (context) => const FactoryClass1(),
+        "/setting": (context) => const Setting()
       },
     );
   }
 }
 
-class factory1 extends StatefulWidget {
-  const factory1({super.key});
+class FactoryClass1 extends StatefulWidget {
+  const FactoryClass1({super.key});
 
   @override
-  State<factory1> createState() => _factory1State();
+  State<FactoryClass1> createState() => _FactoryClass1State();
 }
 
-class _factory1State extends State<factory1> {
+class _FactoryClass1State extends State<FactoryClass1> {
   int currentIndex = 1;
 
   void _onIteamTapped(int index) {
@@ -77,7 +75,7 @@ class _factory1State extends State<factory1> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: screenWidth,
           height: screenHeight,
           // color: Colors.grey[500],
@@ -110,7 +108,7 @@ class _factory1State extends State<factory1> {
                               TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
                         ),
                         Expanded(
-                          child: gaugeLayout(
+                          child: GaugeLayout(
                               value1: 0.0,
                               value2: 0.0,
                               value3: 0.0,
@@ -145,7 +143,7 @@ class _factory1State extends State<factory1> {
                                   MaterialPageRoute(
                                       builder: (context) => const Factory1()));
                             },
-                            child: const factorySlider(factoryNo: "Factory 1")),
+                            child: const FactorySlider(factoryNo: "Factory 1")),
                         GestureDetector(
                             onTap: () {
                               Navigator.push(
@@ -153,12 +151,12 @@ class _factory1State extends State<factory1> {
                                   MaterialPageRoute(
                                       builder: (context) => const FirstPage()));
                             },
-                            child: const factorySlider(factoryNo: "Factory 2")),
+                            child: const FactorySlider(factoryNo: "Factory 2")),
                         GestureDetector(
                             onTap: () {
                               logger.d("This is Factory 3");
                             },
-                            child: const factorySlider(factoryNo: "Factory 3")),
+                            child: const FactorySlider(factoryNo: "Factory 3")),
                       ],
                     ),
                   )

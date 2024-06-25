@@ -10,14 +10,14 @@ class OTP extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: otpPage(),
+        body: const OtpPage(),
       ),
     );
   }
 }
 
-class otpPage extends StatelessWidget {
-  const otpPage({super.key});
+class OtpPage extends StatelessWidget {
+  const OtpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,11 @@ class otpPage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset("images/upmLogo.png"),
-          Align(
+          const Align(
             alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.only(left: 20),
-              child: const Text(
+              child: Text(
                 "Welcome !",
                 style: TextStyle(fontWeight: FontWeight.w900, fontSize: 40),
               ),
@@ -39,7 +39,7 @@ class otpPage extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.5),
               color: Colors.grey[100],
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                     color: Colors.grey,
                     offset: Offset(2.5, 2.5),
@@ -47,15 +47,15 @@ class otpPage extends StatelessWidget {
                     spreadRadius: 1)
               ],
             ),
-            margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
-            padding: EdgeInsets.all(15),
+            margin: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            padding: const EdgeInsets.all(15),
             height: 350,
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
@@ -67,10 +67,10 @@ class otpPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [ObscuredTextFieldSample()],
                 ),
@@ -86,13 +86,13 @@ class otpPage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 35,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Didn't recieve? ",
                       style: TextStyle(fontSize: 15),
                     ),
@@ -107,7 +107,7 @@ class otpPage extends StatelessWidget {
                     ])),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -117,22 +117,22 @@ class otpPage extends StatelessWidget {
                       key: const Key("activateOTP"),
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Factory2()));
+                            MaterialPageRoute(builder: (context) => const Factory2()));
                       },
                       child: Container(
                         width: 170,
                         height: 40,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color.fromARGB(255, 250, 225, 255),
-                            boxShadow: [
+                            color: const Color.fromARGB(255, 250, 225, 255),
+                            boxShadow: const [
                               BoxShadow(
                                   color: Colors.grey,
                                   offset: Offset(1.5, .5),
                                   blurRadius: 0.5,
                                   spreadRadius: 1)
                             ]),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Activate",
                             style: TextStyle(
@@ -147,7 +147,7 @@ class otpPage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Center(
@@ -162,13 +162,13 @@ class otpPage extends StatelessWidget {
               )
             ])),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Text(
+          const Text(
             "Copyright UPM & Kejuruteraan Minyak Sawit ",
           ),
-          Text("CCS Sdn. Bhd.")
+          const Text("CCS Sdn. Bhd.")
         ],
       ),
     );
