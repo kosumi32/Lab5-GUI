@@ -21,6 +21,8 @@ class Activation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -211,9 +213,11 @@ class TextFieldSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      width: 220,
-      child: TextField(
+    final double weight = MediaQuery.of(context).size.height;
+
+    return SizedBox(
+      width: weight * 0.35,
+      child: const TextField(
         obscureText: false,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
