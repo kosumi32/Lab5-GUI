@@ -216,7 +216,7 @@ class TextFieldSample extends StatelessWidget {
     final double weight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      width: weight * 0.35,
+      width: weight * 0.26,
       child: const TextField(
         obscureText: false,
         decoration: InputDecoration(
