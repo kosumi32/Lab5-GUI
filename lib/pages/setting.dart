@@ -112,7 +112,7 @@ class _SettingTabState extends State<SettingTab> {
                         ),
                       ),
                       Container(
-                        width: 35,
+                        width: 30,
                         height: 40,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -125,7 +125,7 @@ class _SettingTabState extends State<SettingTab> {
                                   spreadRadius: 1)
                             ]),
                         child: const Padding(
-                            padding: EdgeInsets.fromLTRB(20, 0, 8, 0),
+                            padding: EdgeInsets.fromLTRB(0, 0, 8, 0),
                             child: Icon(Icons.edit)),
                       ),
                     ],
