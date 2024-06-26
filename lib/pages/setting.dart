@@ -95,10 +95,10 @@ class _SettingTabState extends State<SettingTab> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
+                      const Expanded(
                         child: Row(
                           children: [
-                            const Expanded(
+                             Expanded(
                               child: Text(
                                 "Minimum Threshold",
                                 style: TextStyle(
@@ -106,13 +106,13 @@ class _SettingTabState extends State<SettingTab> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            const SizedBox(width: 8),
-                            const Icon(Icons.info_outline_rounded),
+                             SizedBox(width: 8),
+                             Icon(Icons.info_outline_rounded),
                           ],
                         ),
                       ),
                       Container(
-                        width: 55,
+                        width: 35,
                         height: 40,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
