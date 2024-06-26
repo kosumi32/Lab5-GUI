@@ -85,7 +85,7 @@ class _SettingTabState extends State<SettingTab> {
                         spreadRadius: 2),
                   ]),
               padding: const EdgeInsets.all(10),
-              width: 330,
+              width: 350,
               height: 450,
               child: Column(
                 children: [
@@ -112,7 +112,7 @@ class _SettingTabState extends State<SettingTab> {
                         ),
                       ),
                       Container(
-                        width: 25,
+                        width: 30,
                         height: 40,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
@@ -218,7 +218,7 @@ class Threshold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
+      width: 170,
       height: 180,
       margin: const EdgeInsets.all(5),
       child: Column(
