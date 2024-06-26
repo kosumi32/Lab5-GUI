@@ -56,7 +56,7 @@ class _SettingTabState extends State<SettingTab> {
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         centerTitle: true,
         titleTextStyle: const TextStyle(
-            fontSize: 28, fontWeight: FontWeight.w900, color: Colors.black),
+            fontSize: 25, fontWeight: FontWeight.w900, color: Colors.black),
 
         // A list of widget display after title
         actions: <Widget>[
@@ -85,8 +85,8 @@ class _SettingTabState extends State<SettingTab> {
                         spreadRadius: 2),
                   ]),
               padding: const EdgeInsets.all(10),
-              width: 340,
-              height: 490,
+              width: 330,
+              height: 450,
               child: Column(
                 children: [
                   const SizedBox(
@@ -102,7 +102,7 @@ class _SettingTabState extends State<SettingTab> {
                               child: Text(
                                 "Minimum Threshold",
                                 style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 28),
+                                    fontWeight: FontWeight.bold, fontSize: 25),
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
