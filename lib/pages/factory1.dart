@@ -76,8 +76,6 @@ class _FactoryClass1State extends State<FactoryClass1> {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          width: screenWidth,
-          height: screenHeight,
           // color: Colors.grey[500],
           child: Align(
               alignment: Alignment.topCenter,
