@@ -95,10 +95,13 @@ class _SettingTabState extends State<SettingTab> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        "Minimum Threshold",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 28),
+                      const Expanded(
+                        child: Text(
+                          "Minimum Threshold",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 28),
+                              overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                       const Icon(Icons.info_outline_rounded),
                       Container(
