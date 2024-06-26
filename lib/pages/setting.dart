@@ -85,7 +85,7 @@ class _SettingTabState extends State<SettingTab> {
                         spreadRadius: 2),
                   ]),
               padding: const EdgeInsets.all(10),
-              width: 375,
+              width: 350,
               height: 490,
               child: Column(
                 children: [
@@ -218,7 +218,7 @@ class Threshold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 165,
+      width: 170,
       height: 180,
       margin: const EdgeInsets.all(5),
       child: Column(
@@ -302,8 +302,8 @@ class ThresholdLayout extends StatelessWidget {
     return GridView(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 18,
-          crossAxisSpacing: 18,
+          mainAxisSpacing: 20,
+          crossAxisSpacing: 20,
           mainAxisExtent: 150),
       children: [
         Threshold(title: title1, value: value1, valueType: valueType1),
