@@ -100,7 +100,7 @@ class _SettingTabState extends State<SettingTab> {
                           "Minimum Threshold",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 28),
-                              overflow: TextOverflow.ellipsis,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const Icon(Icons.info_outline_rounded),
